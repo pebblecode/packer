@@ -1,0 +1,5 @@
+{
+  "ami_id": "ami-f9e30f96",
+  "private_subnet_id": "subnet-7e261d17",
+  "packer_build_number": "1"
+}

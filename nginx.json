@@ -1,0 +1,39 @@
+{
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": ""
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "eu-west-1",
+      "source_ami": "ami-b0ac25c3",
+      "instance_type": "t2.nano",
+      "ssh_username": "ec2-user",
+      "ami_name": "packer_nginx {{timestamp}}",
+      "tags": {
+        "Name": "packer-nginx"
+      },
+      "ami_description": "nginx built by packer on {{isotime \"2006-01-02_03_04_05\"}}"
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo sed -i -e '/\\[epel\\]/,/^$/s/enabled=0/enabled=1/' /etc/yum.repos.d/epel.repo",
+        "sudo yum update -y",
+        "sudo yum install -y ansible",
+        "sudo pip install ansible"
+      ]
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "./nginx.yml",
+      "command": "ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 sudo ansible-playbook"
+    }
+  ]
+}
