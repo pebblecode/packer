@@ -1,3 +1,5 @@
-edit var.json to add the correct base ubuntu ami for your region (ubuntu 16.04 hvm ebs amd_64)
-export environment variables to contain aws credential
-packer-io build -var-file=./var.json packer.json
+= How to build this image =
+- edit var.json to add the correct base ubuntu ami for your region (ubuntu 16.04 hvm ebs amd_64)
+- edit modules/templates/elasticsearch/var/elasticsearch and set the correct region
+- export environment variables to contain aws credential
+- packer-io build -var-file=./var.json packer.json

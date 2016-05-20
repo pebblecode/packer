@@ -3,13 +3,13 @@ es_version: "1.7.5"
 es_home: /usr/share/elasticsearch
 es_wait_for_listen: yes
 es_etc:
-  cluster_name: central_logging_cluster
+  cluster_name: search_cluster
   discovery.type: ec2
   discovery.ec2.groups: elasticsearch-sg
-  cloud.aws.region: ""
+  cloud.aws.region: "eu-central-1"
 es_default_es_heap_size: 4g
 es_plugins:
-  - { name: 'elasticsearch/elasticsearch-cloud-aws/2.6.0' }
+  - { name: 'elasticsearch/elasticsearch-cloud-aws/2.7.1' }
   - { name: 'elasticsearch/marvel/latest' }
   - { name: 'mobz/elasticsearch-head' }
 es_etc_index_number_of_replicas: 2
