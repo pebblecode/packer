@@ -1,7 +1,6 @@
 {
   "variables": {
     "ami_id": "",
-    "private_subnet_id": "",
     "packer_build_number": ""
   },
   "description": "ElasticSearch Image",
