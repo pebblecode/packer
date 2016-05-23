@@ -5,9 +5,9 @@ es_wait_for_listen: yes
 es_etc:
   cluster_name: search_cluster
   discovery.type: ec2
-  discovery.ec2.groups: elasticsearch-sg
-  cloud.aws.region: "eu-central-1"
-es_default_es_heap_size: 4g
+  discovery.ec2.groups: sg-a4d60dc3
+  cloud.aws.region: ""
+es_default_es_heap_size: 1g
 es_plugins:
   - { name: 'elasticsearch/elasticsearch-cloud-aws/2.7.1' }
   - { name: 'elasticsearch/marvel/latest' }

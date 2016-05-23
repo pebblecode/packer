@@ -2,5 +2,8 @@
   sudo: yes
 
   roles:
+    - ansible-oracle-java
     - elasticsearch
 
+  vars:
+    java_version: 8

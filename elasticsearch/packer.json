@@ -16,7 +16,7 @@
       },
       "source_ami": "{{user `ami_id`}}",
       "ssh_timeout": "10m",
-      "ssh_username": "ubuntu",
+      "ssh_username": "ec2-user",
       "subnet_id": "subnet-3e4fb748",
       "tags": {
         "Name": "elasticsearch-packer-image"

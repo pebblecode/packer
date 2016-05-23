@@ -1,7 +1,7 @@
 {
   "ami_id": {
-    "eu-central-1": "ami-f9e30f96",
-    "eu-west-1": "ami-7a138709"
+    "eu-central-1": "ami-3de90552",
+    "eu-west-1": "ami-b0ac25c3"
   },
   "packer_build_number": "2"
 }
