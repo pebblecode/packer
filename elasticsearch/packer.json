@@ -1,5 +1,6 @@
 {
   "variables": {
+    "region": "",
     "ami_id": "",
     "packer_build_number": ""
   },
@@ -7,15 +8,16 @@
   "builders": [
     {
       "ami_name": "elasticsearch-{{user `packer_build_number`}}",
-      "availability_zone": "eu-central-1a",
+      "availability_zone": "{{user `availability_zone`}}",
       "instance_type": "t2.small",
-      "region": "eu-central-1",
+      "region": "{{user `region`}}",
       "run_tags": {
         "role": "packer"
       },
       "source_ami": "{{user `ami_id`}}",
       "ssh_timeout": "10m",
       "ssh_username": "ubuntu",
+      "subnet_id": "subnet-3e4fb748",
       "tags": {
         "Name": "elasticsearch-packer-image"
       },

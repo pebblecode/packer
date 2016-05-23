@@ -1,0 +1,6 @@
+{
+  "ami_id": "ami-7a138709",
+  "packer_build_number": "2",
+  "region": "eu-central",
+  "availability_zone": "eu-central-1a"
+}
