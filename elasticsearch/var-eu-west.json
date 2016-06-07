@@ -1,6 +1,7 @@
 {
   "ami_id": "ami-b0ac25c3",
-  "packer_build_number": "2",
+  "packer_build_number": "3",
   "availability_zone": "eu-west-1c",
-  "region": "eu-west-1"
+  "region": "eu-west-1",
+  "subnet_id": "subnet-3e4fb748"
 }

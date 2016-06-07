@@ -7,3 +7,8 @@
 
   vars:
     java_version: 8
+    es_etc:
+      cloud.aws.region: "{{ region }}"
+      cluster_name: search_cluster
+      discovery.type: ec2
+      discovery.ec2.groups: elasticsearch-sg

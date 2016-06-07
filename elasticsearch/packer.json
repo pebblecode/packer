@@ -17,27 +17,48 @@
       "source_ami": "{{user `ami_id`}}",
       "ssh_timeout": "10m",
       "ssh_username": "ec2-user",
-      "subnet_id": "subnet-3e4fb748",
+      "subnet_id": "{{user `subnet_id`}}",
       "tags": {
         "Name": "elasticsearch-packer-image"
       },
       "type": "amazon-ebs"
+    },
+    {
+      "type": "docker",
+      "image": "local/c7-systemd",
+      "pull": false,
+      "commit": true,
+      "volumes": {
+        "/sys/fs/cgroup": "/sys/fs/cgroup:ro"
+      }
     }
   ],
   "provisioners": [
     {
       "type": "shell",
-      "inline": [ "sleep 10" ]
+      "inline": [ "sleep 10" ],
+      "only": ["amazon-ebs"]
+    },
+    {
+      "type": "shell",
+      "inline": [ 
+        "yum install -y sudo",
+        "rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-6.noarch.rpm",
+        "yum update -y && yum install -y ansible"
+      ],
+      "only": ["docker"]
     },
     {
       "type": "shell",
       "script": "install_dependencies.sh",
-      "execute_command": "echo '' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+      "execute_command": "echo '' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "only": ["amazon-ebs"]
     },
     {
       "type": "ansible-local",
       "playbook_file": "elasticsearch.yml",
-      "playbook_dir": "./modules"
+      "playbook_dir": "./modules",
+      "extra_arguments": [ "--extra-vars \"region={{user `region`}}\"" ]
     }
   ]
 }

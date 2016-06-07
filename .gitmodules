@@ -1,0 +1,3 @@
+[submodule "elasticsearch/modules/roles/ansible-oracle-java"]
+	path = elasticsearch/modules/roles/ansible-oracle-java
+	url = git@github.com:William-Yeh/ansible-oracle-java.git
