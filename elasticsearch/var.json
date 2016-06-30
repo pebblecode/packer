@@ -3,5 +3,5 @@
     "eu-central-1": "ami-3de90552",
     "eu-west-1": "ami-b0ac25c3"
   },
-  "packer_build_number": "2"
+  "packer_build_number": "4"
 }

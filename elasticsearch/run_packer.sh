@@ -1,5 +1,6 @@
 #!/bin/bash
 
 packer build \
-  -var-file=var-eu-west.json \
+  -only=amazon-ebs \
+  -var-file=var-eu-west-preview.json \
   packer.json

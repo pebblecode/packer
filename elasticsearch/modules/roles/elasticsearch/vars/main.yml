@@ -7,5 +7,5 @@ es_plugins:
   - { name: 'elasticsearch/elasticsearch-cloud-aws/2.7.1' }
   - { name: 'elasticsearch/marvel/latest' }
   - { name: 'mobz/elasticsearch-head' }
-es_etc_index_number_of_replicas: 2
+es_etc_index_number_of_replicas: 1
 
